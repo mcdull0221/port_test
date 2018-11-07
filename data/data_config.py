@@ -4,18 +4,18 @@
 
 
 class GlobalVar:
-    Id = '0'
-    url = '2'
-    run = '3'
-    request_way = '4'
-    cookie = '5'
-    header = '6'
-    case_depend = '7'
-    data_depend = '9'
-    field_depend = '8'
-    data = '10'
-    expect = '11'
-    result = '12'
+    Id = 0
+    url = 2
+    run = 3
+    request_way = 4
+    cookie = 5
+    header = 6
+    case_depend = 7
+    data_depend = 9
+    field_depend = 8
+    data = 10
+    expect = 11
+    result = 12
 
 
 # 获取caseid

@@ -33,7 +33,7 @@ class GetData:
             return None
 
     # 获取请求方式
-    def get_request(self, row):
+    def get_request_method(self, row):
         col = data_config.get_request_way()
         request_method = self.opera_excel.get_cell(row, col)
         return request_method

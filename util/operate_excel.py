@@ -12,7 +12,7 @@ class OperationExcel:
             self.file_path = file_path
             self.sheet_id = sheet_id
         else:
-            self.file_path = '../dataconfig/case1.xls'
+            self.file_path = PATH('../dataconfig/case1.xls')
             self.sheet_id = 0
         self.data = self.get_data()
 

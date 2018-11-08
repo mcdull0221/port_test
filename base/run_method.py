@@ -8,6 +8,7 @@ class RunMethod:
             res = requests.post(url=url, data=data, headers=header)
         else:
             res = requests.post(url=url, data=data)
+        print(res.status_code)
         return res.json()
 
     def get_main(self, url, data=None, header=None):
@@ -15,6 +16,7 @@ class RunMethod:
             res = requests.get(url=url, data=data, headers=header)
         else:
             res = requests.get(url=url, data=data)
+        print(res.status_code)
         return res.json()
 
     def run_main(self, method, url, data=None, header=None):

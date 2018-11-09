@@ -1,5 +1,6 @@
 import xlrd
 import xlwt
+from xlutils.copy import copy
 import sys, os
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -31,8 +32,23 @@ class OperationExcel:
     def get_cell(self, row, col):
         return self.data.cell_value(row, col)
 
+    # 写入数据到Excel
+    def write_value(self, row, col, value):
+        """
+        :param row: 行
+        :param col:列
+        :param value:写入的值
+        :return:
+        """
+        excel = xlrd.open_workbook(self.file_path)
+        excel_copy = copy(excel)
+        sheet_data = excel_copy.get_sheet(0)
+        sheet_data.write(row, col, value)
+        excel_copy.save(self.file_path)
+
 
 if __name__ == '__main__':
     opers = OperationExcel()
     print(opers.get_lines())
     print(opers.get_cell(1, 10))
+    opers.write_value(2, 12, '123123')

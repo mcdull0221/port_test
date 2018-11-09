@@ -68,6 +68,11 @@ class GetData:
         else:
             return expect_data
 
+    # 将测试结果写入到Excel中
+    def write_value(self, row, value):
+        col = data_config.get_result()
+        self.opera_excel.write_value(row, col, value)
+
 
 if __name__ == '__main__':
     get_data = GetData()

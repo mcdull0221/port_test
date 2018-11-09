@@ -1,8 +1,8 @@
-import sys
-sys.path.append("E:/pythonProject/porttest")
 from base.run_method import RunMethod
 from data.get_data import GetData
 from util.comment_util import CommentUtil
+import sys
+sys.path.append("E:/pythonProject/porttest")
 
 
 class RunTest:
@@ -27,9 +27,9 @@ class RunTest:
                 print(res)
                 result = self.comment_util.is_contain(expect, res)
                 if result is True:
-                    print('测试通过')
+                    self.data.write_value(i, 'pass')
                 else:
-                    print('测试失败')
+                    self.data.write_value(i, 'failed')
 
 
 if __name__ == '__main__':

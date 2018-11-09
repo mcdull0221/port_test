@@ -72,8 +72,9 @@ def get_expect():
 def get_result():
     return GlobalVar.result
 
+
 def get_header_value():
     header = {
-        "header":"1234",
-        "cookie":"Mushishi"
+        "header": "1234",
+        "cookie": "Mushishi"
     }

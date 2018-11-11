@@ -1,7 +1,7 @@
 from util.operate_excel import OperationExcel
 from base.run_method import RunMethod
 from data.get_data import GetData
-from jsonpath_rw import jsonpath,parse
+from jsonpath_rw import jsonpath, parse
 
 
 class DependentData:
@@ -36,3 +36,4 @@ class DependentData:
         # math.value for math in madle 增强的for循环 类似于
         # for i in madle:
         #     i.value
+        # math.value 返回的是一个集合

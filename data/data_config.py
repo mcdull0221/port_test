@@ -11,8 +11,8 @@ class GlobalVar:
     cookie = 5
     header = 6
     case_depend = 7
-    data_depend = 9
-    field_depend = 8
+    data_depend = 8
+    field_depend = 9
     data = 10
     expect = 11
     result = 12
@@ -58,7 +58,7 @@ def get_field_depend():
     return GlobalVar.field_depend
 
 
-# 获取field_depend
+# 获取请求数据
 def get_data():
     return GlobalVar.data
 

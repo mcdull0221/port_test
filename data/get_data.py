@@ -68,6 +68,15 @@ class GetData:
         else:
             return expect_data
 
+    # 获取依赖数据的key
+    def get_depend_key(self, row):
+        col = data_config.get_data_depend()
+        depent_key = self.opera_excel.get_cell(row, col)
+        if depent_key is None:
+            return None
+        else:
+            return depent_key
+
     # 将测试结果写入到Excel中
     def write_value(self, row, value):
         col = data_config.get_result()

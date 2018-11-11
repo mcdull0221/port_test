@@ -46,6 +46,34 @@ class OperationExcel:
         sheet_data.write(row, col, value)
         excel_copy.save(self.file_path)
 
+    # 获取某一列的内容
+    def get_cols_data(self, col_id=None):
+        if col_id is not None:
+            cols = self.data.col_values(col_id)
+        else:
+            cols = self.data.col_values(0)
+        return cols
+
+    # 根据应对的caseid找到对应行的内容
+    def get_rows_data(self, case_id):
+        row_number = self.get_row_number(case_id)
+        rows_data = self.get_row_value(row_number)
+        return rows_data
+
+    # 根据应对的caseid找到对应行号
+    def get_row_number(self, case_id):
+        num = 0
+        clols_data = self.get_cols_data()
+        for col_data in clols_data:
+            if case_id in col_data:
+                return num
+            num += 1
+
+    # 根据行号找到该行的内容
+    def get_row_value(self, row):
+        row_data = self.data.row_values(row)
+        return row_data
+
 
 if __name__ == '__main__':
     opers = OperationExcel()

@@ -82,9 +82,30 @@ class GetData:
         col = data_config.get_result()
         self.opera_excel.write_value(row, col, value)
 
+    # 判断是否有case依赖
+    def is_depend(self, row):
+        col = data_config.get_case_depend()
+        # print(col)
+        depend_case_id = self.opera_excel.get_cell(row, col)
+        # print(type(depend_case_id))
+        if depend_case_id is None:
+            return None
+        else:
+            return depend_case_id
 
-if __name__ == '__main__':
-    get_data = GetData()
-    data = get_data.get_data_for_json(1)
-    print(data)
+    # 获取数据依赖字段
+    def get_depend_filed(self, row):
+        col = data_config.get_field_depend()
+        data = self.opera_excel.get_cell(row, col)
+        if data is None:
+            return None
+        else:
+            return data
+
+
+# if __name__ == '__main__':
+#     get_data = GetData()
+#     data = get_data.get_data_for_json(1)
+#     # print(data)
+#     print(get_data.is_depend(11))
 

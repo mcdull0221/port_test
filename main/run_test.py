@@ -2,6 +2,7 @@ from base.run_method import RunMethod
 from data.get_data import GetData
 from util.comment_util import CommentUtil
 import sys
+from data.dependent_data import DependentData
 sys.path.append("E:/pythonProject/porttest")
 
 
@@ -13,18 +14,25 @@ class RunTest:
 
     # 程序执行
     def go_on_run(self):
-        res = None
         count = self.data.get_case_lines()
         for i in range(1, count):
-            url = self.data.get_request_url(i)
-            method = self.data.get_request_method(i)
             is_run = self.data.get_is_run(i)
-            data = self.data.get_data_for_json(i)
-            header = self.data.is_header(i)
-            expect = self.data.get_expect_data(i)
             if is_run is True:
+                url = self.data.get_request_url(i)
+                method = self.data.get_request_method(i)
+                data = self.data.get_data_for_json(i)
+                header = self.data.is_header(i)
+                expect = self.data.get_expect_data(i)
+                depend_case = self.data.is_depend(i)
+                if depend_case != '':
+                    depend_data = DependentData(depend_case)
+                    # 获取依赖的相应数据
+                    depend_response_data = depend_data.get_data_for_key(i)
+                    # 获取依赖的key
+                    depend_key = self.data.get_depend_filed(i)
+                    data[depend_key] = depend_response_data
                 res = self.run_method.run_main(method, url, data, header)
-                print(res)
+
                 result = self.comment_util.is_contain(expect, res)
                 if result is True:
                     self.data.write_value(i, 'pass')

@@ -2,6 +2,7 @@ from util.operate_excel import OperationExcel
 from base.run_method import RunMethod
 from data.get_data import GetData
 from jsonpath_rw import jsonpath, parse
+import json
 
 
 class DependentData:
@@ -24,7 +25,7 @@ class DependentData:
         url = self.get_data.get_request_url(row)
         method = self.get_data.get_request_method(row)
         res = self.run_method.run_main(method, url, request_data, header)
-        return res
+        return json.loads(res)
 
     # 根据依赖的key去获取执行依赖测试case的相应,然后返回
     def get_data_for_key(self, row):
@@ -32,7 +33,12 @@ class DependentData:
         respense_data = self.run_dependent()
         json_exe = parse(depend_data)
         madle = json_exe.find(respense_data)
-        return [math.value for math in madle][0]
+        data = [math.value for math in madle]
+        if len(data) == 0:
+            print('依赖数据异常')
+            return None
+        else:
+            return data[0]
         # math.value for math in madle 增强的for循环 类似于
         # for i in madle:
         #     i.value

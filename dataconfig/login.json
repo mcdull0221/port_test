@@ -1,5 +1,5 @@
 {"user1":{"uid":"0","service_id":"1","os":"Android","secrectd_code":"ffffffff-b423-2a1e-ffff-ffffcbeed19a","osv":"4.4.4","chan_id":"10102001","screen_size":"768*1366","password":"cluZgkasMLF2LZPexIJMbw==","timestamp":"1507260001708","plat_id":"2","v_id":"5.1.2","token":"50609fd5ffd05c734195d4bbc8dd5092","email":"hQMVwpqKhWbGx5nOcz1fdA==","brand":"ZUK ZUK Z2121","app_id":"1","uuid":""},
-"user":{"username":"18513199586","password":"111111","verify":"", "referer":"http://m.imooc.com"},
+"user":{"username":"songxl@nurotron.com","password":"qqmima123","verify":"", "referer":"http://m.imooc.com"},
 "szlist":{"timestamp":"1507272377898","uid":"5249191","uuid":"5ae7d1a22c82fb89c78f603420870ad7","secrect":"7d33829ecc354f0b4e00fb3764cb4207","marking":"androidbanner","type":"1","token":"50609fd5ffd05c734195d4bbc8dd5092"},
 "coureinfo":{"timestamp":"1507272626988","uid":"5249191","secrect":"7d33829ecc354f0b4e00fb3764cb4207","token":"530157426cc3c609257ce2c2ca8a16a5","plan_id":"20"},
 "buycourse":{"timestamp":"1507273116527","uid":"5249191","secrect":"7d33829ecc354f0b4e00fb3764cb4207","token":"4598e3d0d245f17c61042dec57a62ea5","type_ids":[{"type":4,"type_id":20}]},

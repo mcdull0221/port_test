@@ -67,7 +67,7 @@ class OperationExcel:
         for col_data in clols_data:
             if case_id in col_data:
                 return num
-            num += 1
+            num = num + 1
 
     # 根据行号找到该行的内容
     def get_row_value(self, row):

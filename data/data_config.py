@@ -78,3 +78,7 @@ def get_header_value():
         "header": "1234",
         "cookie": "Mushishi"
     }
+
+
+if __name__ == '__main__':
+    print(get_field_depend())

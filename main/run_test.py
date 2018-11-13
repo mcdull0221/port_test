@@ -15,6 +15,8 @@ class RunTest:
     # 程序执行
     def go_on_run(self):
         count = self.data.get_case_lines()
+        pass_count = []
+        fail_count = []
         for i in range(1, count):
             is_run = self.data.get_is_run(i)
             if is_run is True:
@@ -36,8 +38,12 @@ class RunTest:
                 result = self.comment_util.is_contain(expect, res)
                 if result is True:
                     self.data.write_value(i, 'pass')
+                    pass_count.append(i)
                 else:
-                    self.data.write_value(i, 'failed')
+                    self.data.write_value(i, res)
+                    fail_count.append(i)
+        print(pass_count)
+        print(fail_count)
 
 
 if __name__ == '__main__':

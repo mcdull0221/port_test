@@ -3,6 +3,7 @@ from data.get_data import GetData
 from util.comment_util import CommentUtil
 import sys
 from data.dependent_data import DependentData
+from util.send_email import SendEmail
 sys.path.append("E:/pythonProject/porttest")
 
 
@@ -11,6 +12,7 @@ class RunTest:
         self.run_method = RunMethod()
         self.data = GetData()
         self.comment_util = CommentUtil()
+        self.send_mail = SendEmail()
 
     # 程序执行
     def go_on_run(self):
@@ -42,8 +44,9 @@ class RunTest:
                 else:
                     self.data.write_value(i, res)
                     fail_count.append(i)
-        print(pass_count)
-        print(fail_count)
+        # print(pass_count)
+        # print(fail_count)
+        self.send_mail.send_main(pass_count, fail_count)
 
 
 if __name__ == '__main__':

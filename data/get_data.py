@@ -101,9 +101,9 @@ class GetData:
             return data
 
 
-if __name__ == '__main__':
-    get_data = GetData()
-    data = get_data.get_data_for_json(1)
-    # print(data)
-    print(get_data.is_depend(1))
+# if __name__ == '__main__':
+#     get_data = GetData()
+#     data = get_data.get_data_for_json(1)
+#     # print(data)
+#     print(get_data.is_depend(1))
 

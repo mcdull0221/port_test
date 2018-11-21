@@ -22,7 +22,7 @@ class OperationJson:
             value = self.data[key]
             return value
         except KeyError:
-            print("请求数据错误")
+            print("请求数据为空")
 
     # 写入json
     def write_json_data(self, data):

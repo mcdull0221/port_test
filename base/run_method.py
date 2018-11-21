@@ -19,19 +19,17 @@ class RunMethod:
 
     def get_main(self, url, data=None, header=None):
         if header is None:
-            res = requests.post(url=url, data=data, headers=self.header)
+            res = requests.get(url=url, data=data, headers=self.header)
         else:
-            res = requests.post(url=url, data=data, headers=header)
-        print(header)
-        print(data)
+            res = requests.get(url=url, data=data, headers=header)
         # print(res.status_code)  # 状态码
         # return res.json()
-        print(res.json())
         return res
 
     def run_main(self, method, url, data=None, header=None):
         res = None
-        data = json.dumps(data)
+        if data is not None:
+            data = json.dumps(data)
         if method == 'post':
             res = self.post_main(url, data, header)
         else:

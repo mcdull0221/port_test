@@ -65,7 +65,7 @@ class OperationExcel:
         num = 0
         clols_data = self.get_cols_data()
         for col_data in clols_data:
-            if case_id in col_data:
+            if case_id == col_data:
                 return num
             num = num + 1
 

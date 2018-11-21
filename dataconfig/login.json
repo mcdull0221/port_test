@@ -15,5 +15,6 @@
 "buy":{"timestamp":"1507989375749","uid":"5249191","trade_number":"1710141907182334","secrect":"694697627cbd7fc65f9d0f82f4fe9849","from":"2","token":"f7d58a0db8381086dc10864b24badb7f","pay_way":"1"},
 "shop":{"timestamp":"1507977102508","uid":"5249191","secrect":"34fc61cc4904ed061fcf78cb9803c758","token":"4f99f77c55a54ee98dd2d60bc463c041","type_ids":[{"type":4,"type_id":21}]},
 "order_list":{"goods_ids":[{"goods_id":"346","type":"1","type_id":"131","status":"1","price":"388.00","ios_price":"388.00","service_lifetime":0,"open_discount":"0","discount_start_time":"1503936000","discount_end_time":"1503936000","discount_price":"0.00","discount_type":"0","code_white_list":10001,"using_discount":"false","pay_price":"388.00","code":0},{"goods_id":"362","type":"1","type_id":"136","status":"1","price":"366.00","ios_price":"366.00","service_lifetime":90,"open_discount":"0","discount_start_time":"1505232000","discount_end_time":"1505232000","discount_price":"0.00","discount_type":"0","code_white_list":10001,"using_discount":"false","pay_price":"366.00","code":0}]},
-"htts_data":{"uid":"5249191"}
+"htts_data":{"uid":"5249191"},
+  "song":{"phone_number": "+8613777864459", "password": "s1234567"}
 }

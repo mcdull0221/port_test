@@ -2,9 +2,14 @@ from base.run_method import RunMethod
 from data.get_data import GetData
 from util.comment_util import CommentUtil
 import sys
+import os
 from data.dependent_data import DependentData
+from util.operation_header import OperationHerader
+from util.operate_json import OperationJson
 from util.send_email import SendEmail
-sys.path.append("E:/pythonProject/porttest")
+curpath = os.path.abspath(os.path.dirname(__file__))
+rootpath = os.path.split(curpath)[0]
+sys.path.append(rootpath)
 
 
 class RunTest:
@@ -21,6 +26,7 @@ class RunTest:
         fail_count = []
         for i in range(1, count):
             is_run = self.data.get_is_run(i)
+            print(i)
             if is_run is True:
                 url = self.data.get_request_url(i)
                 method = self.data.get_request_method(i)
@@ -28,15 +34,24 @@ class RunTest:
                 header = self.data.is_header(i)
                 expect = self.data.get_expect_data(i)
                 depend_case = self.data.is_depend(i)
-                if depend_case != '':
+                if depend_case is not None:
                     depend_data = DependentData(depend_case)
                     # 获取依赖的相应数据
                     depend_response_data = depend_data.get_data_for_key(i)
                     # 获取依赖的key
                     depend_key = self.data.get_depend_filed(i)
                     data[depend_key] = depend_response_data
-                res = self.run_method.run_main(method, url, data, header)
-
+                if header == 'write':
+                    res = self.run_method.run_main(method, url, data)
+                    op_header = OperationHerader(res)
+                    op_header.write_cookie()
+                elif header == 'yes':
+                    op_json = OperationJson('../dataconfig/cookie.json')
+                    new_header = op_json.new_header()
+                    res = self.run_method.run_main(method, url=url, data=data, header=new_header)
+                else:
+                    res = self.run_method.run_main(method, url, data)
+                res = self.comment_util.remate_data(res)
                 result = self.comment_util.is_contain(expect, res)
                 if result is True:
                     self.data.write_value(i, 'pass')

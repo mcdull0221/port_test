@@ -27,8 +27,8 @@ class GetData:
     def is_header(self, row):
         col = data_config.get_header()
         header = self.opera_excel.get_cell(row, col)
-        if header == 'yes':
-            return 'header'
+        if header != '':
+            return header
         else:
             return None
 
@@ -48,10 +48,9 @@ class GetData:
     def get_request_data(self, row):
         col = data_config.get_data()
         data = self.opera_excel.get_cell(row, col)
-        if data is None:
-            return None
-        else:
-            return data
+        if data == '':
+            return ''
+        return data
 
     # 通过获取关键字拿到data数据
     def get_data_for_json(self, row):
@@ -63,16 +62,15 @@ class GetData:
     def get_expect_data(self, row):
         col = data_config.get_expect()
         expect_data = self.opera_excel.get_cell(row, col)
-        if expect_data is None:
+        if expect_data == '':
             return None
-        else:
-            return expect_data
+        return expect_data
 
     # 获取依赖数据的key
     def get_depend_key(self, row):
         col = data_config.get_data_depend()
         depent_key = self.opera_excel.get_cell(row, col)
-        if depent_key is None:
+        if depent_key == '':
             return None
         else:
             return depent_key
@@ -88,7 +86,7 @@ class GetData:
         # print(col)
         depend_case_id = self.opera_excel.get_cell(row, col)
         # print(type(depend_case_id))
-        if depend_case_id is None:
+        if depend_case_id == "":
             return None
         else:
             return depend_case_id
@@ -97,15 +95,15 @@ class GetData:
     def get_depend_filed(self, row):
         col = data_config.get_field_depend()
         data = self.opera_excel.get_cell(row, col)
-        if data is None:
+        if data == "":
             return None
         else:
             return data
 
 
-# if __name__ == '__main__':
-#     get_data = GetData()
-#     data = get_data.get_data_for_json(1)
-#     # print(data)
-#     print(get_data.is_depend(11))
+if __name__ == '__main__':
+    get_data = GetData()
+    data = get_data.get_data_for_json(1)
+    # print(data)
+    print(get_data.is_depend(1))
 

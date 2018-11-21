@@ -8,14 +8,13 @@ class GlobalVar:
     url = 2
     run = 3
     request_way = 4
-    cookie = 5
-    header = 6
-    case_depend = 7
-    data_depend = 8
-    field_depend = 9
-    data = 10
-    expect = 11
-    result = 12
+    header = 5
+    case_depend = 6
+    data_depend = 7
+    field_depend = 8
+    data = 9
+    expect = 10
+    result = 11
 
 
 # 获取caseid
@@ -71,13 +70,6 @@ def get_expect():
 # 获取result
 def get_result():
     return GlobalVar.result
-
-
-def get_header_value():
-    header = {
-        "header": "1234",
-        "cookie": "Mushishi"
-    }
 
 
 if __name__ == '__main__':

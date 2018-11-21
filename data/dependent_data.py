@@ -21,11 +21,11 @@ class DependentData:
     def run_dependent(self):
         row = self.operat_excel.get_row_number(self.case_id)
         request_data = self.get_data.get_data_for_json(row)
-        header = self.get_data.is_header(row)
+        # header = self.get_data.is_header(row)
         url = self.get_data.get_request_url(row)
         method = self.get_data.get_request_method(row)
-        res = self.run_method.run_main(method, url, request_data, header)
-        return json.loads(res)
+        res = self.run_method.run_main(method, url, request_data)
+        return res.json()
 
     # 根据依赖的key去获取执行依赖测试case的相应,然后返回
     def get_data_for_key(self, row):

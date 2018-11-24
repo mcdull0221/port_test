@@ -2,6 +2,7 @@ __author__ = 'songxiaolin'
 from data import data_config
 from util.operate_excel import OperationExcel
 from util.operate_json import OperationJson
+from util.connect_db import ConnectDb
 
 
 class GetData:
@@ -65,6 +66,15 @@ class GetData:
         if expect_data == '':
             return None
         return expect_data
+
+    # 通过sql获取预期结果
+    def get_expect_data_for_mysql(self, row):
+        sql = self.get_expect_data(row)
+        op_mysql = ConnectDb()
+        res = op_mysql.search_one(sql)
+        return res
+        # 如果没有显示中文则需要转译
+        # return res.decode('unicode-escape')
 
     # 获取依赖数据的key
     def get_depend_key(self, row):

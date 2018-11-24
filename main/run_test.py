@@ -33,6 +33,8 @@ class RunTest:
                 data = self.data.get_data_for_json(i)
                 header = self.data.is_header(i)
                 expect = self.data.get_expect_data(i)
+                # 如果用需要查询数据库则用下面这条
+                # expect = self.data.get_expect_data_for_mysql(i)
                 depend_case = self.data.is_depend(i)
                 if depend_case is not None:
                     depend_data = DependentData(depend_case)
@@ -61,7 +63,7 @@ class RunTest:
                     fail_count.append(i)
         # print(pass_count)
         # print(fail_count)
-        self.send_mail.send_main(pass_count, fail_count)
+        # self.send_mail.send_main(pass_count, fail_count)
 
 
 if __name__ == '__main__':

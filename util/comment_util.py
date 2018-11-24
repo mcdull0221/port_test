@@ -1,3 +1,5 @@
+from filecmp import cmp
+
 __author__ = 'songxiaolin'
 import json
 
@@ -28,4 +30,15 @@ class CommentUtil:
         else:
             flag = False
         return flag
+
+    def is_equal_dict(self, dict_one, dict_two):
+        """
+        判断两个字典是否相等
+        如果是字符串则先转换为字典
+        """
+        if isinstance(dict_one, str):
+            dict_one = json.loads(dict_one)
+        if isinstance(dict_two, str):
+            dict_two = json.loads(dict_two)
+        return cmp(dict_one, dict_two)
 

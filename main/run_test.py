@@ -54,6 +54,7 @@ class RunTest:
                 else:
                     res = self.run_method.run_main(method, url, data)
                 res = self.comment_util.remate_data(res)
+                # 字符串比较用is_contain，字典比较用is_equal_dict
                 result = self.comment_util.is_contain(expect, res)
                 if result is True:
                     self.data.write_value(i, 'pass')

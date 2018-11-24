@@ -2,6 +2,7 @@ __author__ = 'songxiaolin'
 import pymysql
 import pymysql.cursors
 import json
+from util.operate_json_datetime import OperareJsonDatetime
 
 
 # db = pymysql.connect('localhost', 'root', '123456', 'redmine')
@@ -39,7 +40,7 @@ class ConnectDb:
     def search_one(self, sql):
         self.cur.execute(sql)
         result = self.cur.fetchone()
-        # result = json.dumps(result)
+        result = json.dumps(result, cls=OperareJsonDatetime)
         return result
 
 

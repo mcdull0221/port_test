@@ -1,15 +1,15 @@
+import sys
+import os
+curpath = os.path.abspath(os.path.dirname(__file__))
+rootpath = os.path.split(curpath)[0]
+sys.path.append(rootpath)
 from base.run_method import RunMethod
 from data.get_data import GetData
 from util.comment_util import CommentUtil
-import sys
-import os
 from data.dependent_data import DependentData
 from util.operation_header import OperationHerader
 from util.operate_json import OperationJson
 from util.send_email import SendEmail
-curpath = os.path.abspath(os.path.dirname(__file__))
-rootpath = os.path.split(curpath)[0]
-sys.path.append(rootpath)
 
 
 class RunTest:
